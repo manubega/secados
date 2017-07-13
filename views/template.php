@@ -4,8 +4,8 @@
 	<title>Secados Alta Calidad</title>
 </head>
 <body>
-<header><h1>LOGOTIPO</h1>
 <link rel="stylesheet" type="text/css" href="../../views/css/estilo.css">
+<header><a href="principal.php?" style="text-decoration: none"><h1>SECADOS</h1></a>
 </header>
 
 <?php

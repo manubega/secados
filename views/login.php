@@ -11,8 +11,8 @@
 		<div id="formulario">
 			<h1>Ingreso al Panel</h1>
 			<form method = "POST" action="" >
-				<input type="text" name = "usuario" placeholder = "Usuario" maxlength="10" minlength="7">
-				<input type="password" name = "password" placeholder= "Password" 
+				<input type="text" name = "usuarioIngreso" placeholder = "Usuario" maxlength="10" minlength="7">
+				<input type="password" name = "passwordIngreso" placeholder= "Password" 
 				maxlength="10" minlength="7">
 				<input type="submit" value = "Entrar">
 			</form>

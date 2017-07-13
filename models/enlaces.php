@@ -4,10 +4,10 @@ class EnlacesPaginas{
 	public function enlacesPaginasModel($enlacesModel){
 
 
-	 if(	
+	 if(	$enlacesModel == 'inicio' ||
 			$enlacesModel == 'produccion' ||
-			$enlacesModel== 'procesos' ||
-			$enlacesModel== 'reportes') {
+			$enlacesModel == 'procesos' ||
+			$enlacesModel == 'reportes') {
 		
 
 			$module = "../../views/modules/".$enlacesModel.".php";

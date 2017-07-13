@@ -1,4 +1,6 @@
 <?php 
+
+include_once 'models/verifica_model.php';
 	
 	class ClsVerifica {
 		
@@ -6,9 +8,19 @@
 	public function verificaLogin(){
 		$_GET['action'] = 0;
 
-		if (isset($_POST['usuario'])&& isset($_POST['password'])) {
-			$user = $_POST['usuario'];
-			$pass  =$_POST['password'];
+		if (isset($_POST['usuarioIngreso'])&& isset($_POST['passwordIngreso'])) {
+
+			$datosCcntroller = array('usuario' => $_POST['usuarioIngreso'],
+				'password' => $_POST['passwordIngreso']);
+
+			$user = $_POST['usuarioIngreso'];
+			$pass  =$_POST['passwordIngreso'];
+
+			$respuesta = VerificaLogin::Verifica($datosController, 'usuarios');
+
+
+
+
 
 				if ($user == 'secados') {
 			if ($pass == 'secados') {
