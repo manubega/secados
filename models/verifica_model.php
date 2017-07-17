@@ -7,9 +7,7 @@ class VerificaLogin extends Conexion{
 	public function verifica($datosModel,$tabla){
 		//REALIZA LA CONEXION A LA BASE DE DATOS
 	
-	
-		
-		$stmt = Conexion::conexionBD()->prepare("SELECT usuario password FROM $tabla WHERE usuario = :usuario AND administrdor = 'si'");
+		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador FROM $tabla WHERE usuario = :usuario");
 
 		$stmt->bindParam(":usuario", $datosModel['usuario'], PDO::PARAM_STR);
 		$stmt->execute();
@@ -21,11 +19,13 @@ class VerificaLogin extends Conexion{
 
 }
 
-$datosCcntroller = array('usuario' => 'admin', 'password' => 'admin');
+
+/*$datosController = array('usuario' => 'admin', 'password' => 'admin');
 
 $a = new VerificaLogin();
-$a->verifica($datosCcntroller, 'usuarios');
+$b = $a->verifica($datosController, 'usuarios');
+var_dump($b['administrador'])*/
 
-var_dump($a);
+
 
  ?>

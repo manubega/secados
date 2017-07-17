@@ -7,7 +7,8 @@ class EnlacesPaginas{
 	 if(	$enlacesModel == 'inicio' ||
 			$enlacesModel == 'produccion' ||
 			$enlacesModel == 'procesos' ||
-			$enlacesModel == 'reportes') {
+			$enlacesModel == 'reportes' ||
+	 		$enlacesModel == 'salir'){
 		
 
 			$module = "../../views/modules/".$enlacesModel.".php";

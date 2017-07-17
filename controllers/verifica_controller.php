@@ -8,38 +8,52 @@ include_once 'models/verifica_model.php';
 	public function verificaLogin(){
 		$_GET['action'] = 0;
 
-		if (isset($_POST['usuarioIngreso'])&& isset($_POST['passwordIngreso'])) {
+		//VERIFICA QUE LOS CAMPOS VENGAN CON DATOS
+		if (isset($_POST['usuarioIngreso']) && isset($_POST['passwordIngreso'])) {//if-1
 
-			$datosCcntroller = array('usuario' => $_POST['usuarioIngreso'],
+			//preg_match: REALIZA UNA COMPARACIÒN CON UNA EXPRESION REGULAR
+			
+			if (preg_match('/^[a-zA-Z0-9]*$/', $_POST['usuarioIngreso']) &&
+				preg_match('/^[a-zA-Z0-9]*$/', $_POST['passwordIngreso'])) {//if-2
+
+			$datosController = array('usuario' => $_POST['usuarioIngreso'],
 				'password' => $_POST['passwordIngreso']);
 
 			$user = $_POST['usuarioIngreso'];
 			$pass  =$_POST['passwordIngreso'];
 
-			$respuesta = VerificaLogin::Verifica($datosController, 'usuarios');
+			$respuesta = VerificaLogin::verifica($datosController, 'usuarios');
 
+			//IF VALIDANDO EL USUARIO INGRESADO CON EL USUARIO DE LA BASE DE DATOS Y VALIDA SI ES ADMINISTRADOR
+				if ($respuesta['usuario'] == $user) {//if-usaurio
+					//VALIDANDO PASSWORD CON EL PASSWORD DE LA BASE DE DATOS
+			if ($respuesta['password'] == $pass) {
 
-
-
-
-				if ($user == 'secados') {
-			if ($pass == 'secados') {
-				header('Location:./views/modules/principal.php');
-			}
+				session_start();
+				if ($respuesta['administrador'] == 'si') {//IF-VALIDAR SI ES ADMINISTRDOR
+					$_SESSION["root"] = true;
+				}//END-IF ADMINISTRDOR
+				if ($respuesta['administrador'] == 'no') {
+					$_SESSION["user"] = true;
+					$_SESSION['root'] = false;
+				}
+				
+				header('Location:./views/modules/principal.php?action=inicio');
+			}//if
 			else{
 				echo "<script>alert('Usuario o Password Incorrecto')</script>";
 			}
-		}
+		}//END if-USUARIO
+
+
+
+
 		else{
 			echo "<script>alert('Usuario o Password Incorrecto')</script>";
 		}
-		}
-		else{
-			$user = $_POST['usuario'] = 0;
-			$pass  =$_POST['password'] = 0;
-
-
-		}
+		}//if-2
+		}//if-1
+		
 	
 	}
 	}
