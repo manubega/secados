@@ -1,6 +1,5 @@
-
-
 <?php 
+
 
 session_start();
 if (!$_SESSION['root']) {
@@ -10,8 +9,11 @@ if ($_SESSION['root'] == 'si') {
 	# code...
 
  ?>
+
+ ?>
 <h1>PAGINA PRODUCCION</h1>
 <form method="GET" onsubmit="return validaProduccion()">
+
 	<input type="text" name="numeroOrden" placeholder="Orden No." required>
 	<br>
 	<br>
@@ -24,8 +26,20 @@ if ($_SESSION['root'] == 'si') {
 	<input type="text" name="procesoOrden" placeholder="Proceso">
 	<br>
 	<br>
+<<<<<<< HEAD
+	<input type="submit" value="Nuevo"  name="">
+	<input type="button" value="Editar" name="">
+	<input type="button" value="Eliminar" name="">
+</form>
+<?php } 
+
+$obj = new ClcController();
+$obj -> produccion();
+
+?>
+
 	<input type="button" value="Nuevo"  name="">
 	<input type="button" value="Editar" name="">
 	<input type="button" value="Eliminar" name="">
 </form>
-<?php } ?>
+

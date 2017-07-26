@@ -1,46 +1,16 @@
 <?php 
 
-class MvcControllers{
+class ClcController{
 
-	//	MANDA LLAMAR A LA VISTA LOGIN
-	public function login(){
+public function produccion(){
 
-		include "views/login.php";
+	if (isset($_POST['numeroOrden']) ) {
 
-	}
-
-	//MANDA A LLAMAR A LA PLANTILLA
-	public function plantilla(){
-
-		include "../template.php";
-
+		echo $_POST['numeroOrden'];
+			}
 }
 
-//INTERACCION DEL USUARIO CON LAS PAGINAS
-public function enlacesPaginasController(){
-
-	if (isset($_GET['action'])) {
-		$enlacesController = $_GET['action'];
-	}
-	else{
-		$enlacesController = 'principal';
-	}
-
-	$respuesta = EnlacesPaginas::EnlacesPaginasModel($enlacesController);
-
-	include_once $respuesta;
-
-
-	
 }
-		
-		
-	}	
-
-	
-
-
-
-
 
  ?>
+
