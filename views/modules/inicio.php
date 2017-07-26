@@ -6,9 +6,7 @@ session_start();
 
 if (!$_SESSION['root']) {
 
-if (!$_SESSION['root'] and !$_SESSION['user']) {
 
-if (!$_SESSION['root'] and !$_SESSION['user']) {
 
 	
 	header('Location:../../index.php');

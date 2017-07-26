@@ -14,10 +14,9 @@ if ($_SESSION['root'] == 'si') {
 
 
 
- ?>
 <h1>PAGINA PRODUCCION</h1>
-<form method="GET" onsubmit="return validaProduccion()">
-<<<<<<< HEAD
+<form method="POST" onsubmit="return validaProduccion()">
+
 
 
 	<input type="text" name="numeroOrden" placeholder="Orden No." required>
@@ -44,14 +43,5 @@ $obj -> produccion();
 
 ?>
 
-	<input type="button" value="Nuevo"  name="">
-	<input type="button" value="Editar" name="">
-	<input type="button" value="Eliminar" name="">
-</form>
 
-=======
-	<input type="button" value="Nuevo"  name="">
-	<input type="button" value="Editar" name="">
-	<input type="button" value="Eliminar" name="">
-</form>
 
