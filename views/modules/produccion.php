@@ -1,5 +1,5 @@
 <?php 
-<<<<<<< HEAD
+
 
 
 session_start();
@@ -10,20 +10,16 @@ if ($_SESSION['root'] == 'si') {
 	# code...
 
  ?>
-=======
-session_start();
-if (!$_SESSION['root'] and !$_SESSION['user']) {
-	header('Location:../../index.php');
-}
->>>>>>> origin/master
+
+
+
 
  ?>
 <h1>PAGINA PRODUCCION</h1>
 <form method="GET" onsubmit="return validaProduccion()">
 <<<<<<< HEAD
 
-=======
->>>>>>> origin/master
+
 	<input type="text" name="numeroOrden" placeholder="Orden No." required>
 	<br>
 	<br>
@@ -36,8 +32,7 @@ if (!$_SESSION['root'] and !$_SESSION['user']) {
 	<input type="text" name="procesoOrden" placeholder="Proceso">
 	<br>
 	<br>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	<input type="submit" value="Nuevo"  name="">
 	<input type="button" value="Editar" name="">
 	<input type="button" value="Eliminar" name="">
@@ -59,4 +54,4 @@ $obj -> produccion();
 	<input type="button" value="Editar" name="">
 	<input type="button" value="Eliminar" name="">
 </form>
->>>>>>> origin/master
+

@@ -23,18 +23,13 @@ include_once 'models/verifica_model.php';
 			$pass  =$_POST['passwordIngreso'];
 
 			$respuesta = VerificaLogin::verifica($datosController, 'usuarios');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/master
+
 
 			//IF VALIDANDO EL USUARIO INGRESADO CON EL USUARIO DE LA BASE DE DATOS Y VALIDA SI ES ADMINISTRADOR
 				if ($respuesta['usuario'] == $user) {//if-usaurio
 					//VALIDANDO PASSWORD CON EL PASSWORD DE LA BASE DE DATOS
 			if ($respuesta['password'] == $pass) {
-<<<<<<< HEAD
-=======
+
 
 				session_start();
 				if ($respuesta['administrador'] == 'si') {//IF-VALIDAR SI ES ADMINISTRDOR
@@ -70,15 +65,13 @@ include_once 'models/verifica_model.php';
 		}//END if-USUARIO
 
 
->>>>>>> origin/master
 
-<<<<<<< HEAD
 			//IF VALIDANDO EL USUARIO INGRESADO CON EL USUARIO DE LA BASE DE DATOS Y VALIDA SI ES ADMINISTRADOR
 				if ($respuesta['usuario'] == $user) {//if-usaurio
 					//VALIDANDO PASSWORD CON EL PASSWORD DE LA BASE DE DATOS
 			if ($respuesta['password'] == $pass) {
 
-<<<<<<< HEAD
+
 				
 				if ($respuesta['administrador'] == 'si') {//IF-VALIDAR SI ES ADMINISTRDOR
 					session_start();
@@ -104,10 +97,7 @@ include_once 'models/verifica_model.php';
 
 
 
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+
 		else{
 			echo "<script>alert('Usuario o Password Incorrecto')</script>";
 		}
