@@ -8,7 +8,11 @@ class VerificaLogin extends Conexion{
 		//REALIZA LA CONEXION A LA BASE DE DATOS
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador, nombre FROM $tabla WHERE usuario = :usuario");
+=======
+		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador FROM $tabla WHERE usuario = :usuario");
+>>>>>>> origin/master
 =======
 		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador FROM $tabla WHERE usuario = :usuario");
 >>>>>>> origin/master
