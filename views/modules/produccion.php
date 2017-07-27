@@ -6,19 +6,13 @@ session_start();
 if (!$_SESSION['root']) {
 	header('Location:../../index.php');
 }
-if ($_SESSION['root'] == 'si') {
-	# code...
 
  ?>
-
-
-
-
-<h1>PAGINA PRODUCCION</h1>
-<form method="POST" onsubmit="return validaProduccion()">
-
-
-
+ 
+<div id = "prod1">
+	<h3>ORDEN DE PRODUCCION</h3>
+	<br>
+	<form method="POST" id="pro" onsubmit="return validaProduccion()">
 	<input type="text" name="numeroOrden" placeholder="Orden No." required>
 	<br>
 	<br>
@@ -36,12 +30,13 @@ if ($_SESSION['root'] == 'si') {
 	<input type="button" value="Editar" name="">
 	<input type="button" value="Eliminar" name="">
 </form>
-<?php } 
+
+</div>
+
+
+<?php
 
 $obj = new ClcController();
 $obj -> produccion();
 
 ?>
-
-
-
