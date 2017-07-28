@@ -139,7 +139,7 @@ div.titulo p{
 }
 
   form#pro input[type = "text"]{
-    width: 470px;
+    width: 200px;
     height: 30px;
     font: 14px normal normal uppercase helvetica, arial, serif;
 }
