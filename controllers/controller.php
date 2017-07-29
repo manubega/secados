@@ -3,11 +3,12 @@
 
 class ClcController{
 
-public function produccion(){
+public function produccionNuevo(){
 
-	if (isset($_POST['numeroOrden']) ) {
+	if (isset($_POST['numeroOrden']) && isset($_POST['idOrden']) && isset($_POST['nombreOrden']) && isset($_POST['procesoOrden'])) {
 
-		echo $_POST['numeroOrden'];
+		
+
 			}
 }
 

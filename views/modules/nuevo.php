@@ -1,8 +1,6 @@
-	
-	<h4>ORDEN DE PRODUCCION</h4>
-	<br>
 	<form method="POST" id="pro" onsubmit="return validaProduccion()">
-	<input type="date" name="">
+	 	
+<input type="date" name="fecha">
 	<br>
 	<br>
 	<input type="text" name="numeroOrden" placeholder="Orden No." required>
