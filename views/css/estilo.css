@@ -133,7 +133,7 @@ div.titulo p{
     border: 1px #ccc solid;
     padding-left: 20px;
     padding-top: 5px;
-    background-color:rgba(150,200,150,.3);
+    background-color:rgba(150,200,150,.1);
     border-radius: 20px;
     margin: left;
 }
