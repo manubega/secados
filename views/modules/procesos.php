@@ -6,4 +6,6 @@ if (!$_SESSION['root'] and !$_SESSION['user']) {
 }
 
  ?>
-<h1 style="position: center;">PAGINA DE PROCESOS</h1>
+ <div id = "prod1">
+ <h1 style="position: center;">PAGINA DE PROCESOS</h1>
+ </div>

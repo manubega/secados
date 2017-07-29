@@ -10,10 +10,7 @@ class VerificaLogin extends Conexion{
 
 		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador, nombre FROM $tabla WHERE usuario = :usuario");
 
-		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador FROM $tabla WHERE usuario = :usuario");
-
-
-		$stmt = Conexion::conectar()->prepare("SELECT  usuario, password, administrador FROM $tabla WHERE usuario = :usuario");
+		
 
 
 		$stmt->bindParam(":usuario", $datosModel['usuario'], PDO::PARAM_STR);
@@ -35,4 +32,3 @@ var_dump($b['administrador'])*/
 
 
 
- ?>

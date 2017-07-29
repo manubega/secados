@@ -100,7 +100,7 @@ header{
         div.titulo{
     position: relative;
     width: 800px;
-    height: 150px;
+    height: 180px;
     margin: 0 auto;
     margin-top: 100px;
     padding: 20px;
@@ -128,18 +128,19 @@ div.titulo p{
 #prod1{
 
     position: relative;
-    width: 500px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     border: 1px #ccc solid;
     padding-left: 20px;
-    padding-top: 30px;
-    background-color:rgba(150,200,150,.8);
+    padding-top: 5px;
+    background-color:rgba(150,200,150,.3);
     border-radius: 20px;
     margin: left;
 }
 
+
   form#pro input[type = "text"]{
-    width: 200px;
-    height: 30px;
-    font: 14px normal normal uppercase helvetica, arial, serif;
+    width: 100px;
+    height: 20px;
+    font: 10px normal normal uppercase helvetica, arial, serif;
 }

@@ -3,6 +3,7 @@
 		<title>Login</title>
 		<meta charset = "UTF-8">
 	<link rel="stylesheet" type="text/css" href="views/css/estilo.css">
+	
 	</head>
 
 	</style>
