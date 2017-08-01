@@ -7,8 +7,8 @@
 	</head>
 
 	</style>
-	<body>
-		<div id="formulario">
+	<body>		
+	<div id="login">
 			<h1>Ingreso al Panel</h1>
 			<form method = "POST" onSubmit="return validacion()" id="login" >
 
@@ -21,7 +21,7 @@
 			</form>
 
 		</div>
-		</div>
+		
 		 	 <script type="text/javascript" src = "views/js/validarIngreso.js"></script>	
 	</body>
 </html>

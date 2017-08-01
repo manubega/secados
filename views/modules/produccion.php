@@ -5,24 +5,15 @@ if (!$_SESSION['root']) {
 }
 
  ?>
-<script type="text/javascript">
-	function buscar(){
-		var opcion = document.getElementById('names').value;
-		window.location.href = 'http://localhost:8000/secados/views/modules/principal.php?action=produccion&&opcion=' + opcion;
-	}
-</script>
- <form action="post">
- 	<select name="names" id="names" onchange="return buscar();">
- 		<option value=""></option>
- 		<option value="hola"></option>
- 	</select>
- </form>
+
  <!--===================================================================
  =            OPCIONES: NUEVO EDITAR ELIMINAR LISTAR BUSCAR            =
  ====================================================================-->
- <div id = "prod1">
-	
-	 <a href="principal.php?action=produccion&&opcion=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+ <div id = "prod1"><!-- DIVISION UNO -->
+ 
+ <div class="subdiv"> <!-- DIVISION DOS -->
+ 
+  <a href="principal.php?action=produccion&&opcion=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
 	 
 	 <?php 
 
@@ -69,13 +60,20 @@ if (isset($_GET['opcion'])) {
 		}
 }
 ?>
+ 	
+ </div><!-- DIVISION 2 -->
 
-</div>
+ 
+ 
+	
+
+</div><!-- DIVISION 1 -->
+
 
 
 <?php
 
 $obj = new ClcController();
-$obj -> produccionNuevo();
+$obj -> registroProduccionController();
 
 ?>

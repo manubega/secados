@@ -1,41 +1,46 @@
-	<?php 
-	//DEFINE LOS VALORES Y ENVIA VALORES VACIOS
-	$clienteErr = $emailErr = $genderErr = $websiteErr = "";
-	$cliente = $email = $gender = $comment = $website = "";
-
-	if ($_SERVER['REQUEST_METHOD'] == "POST") {//if 1
-
-		if (empty($_POST['cliente'])) { //if 2
-			$clienteErr = 'El nombre es requerido';
-		}//end if 2
-		else{
-			$cliente = test_input($_POST['cliente']);
-				if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-					$nameErr = 'Solo se permiten letras y espacios en blanco';
-				
-			}
-		}//end else
-
-		
-	}//end if 1
-	 ?>
-
-	<form method="POST" id="pro" onsubmit="return validaProduccion()">
-	 	
-<time datetime="fecha">Fecha</time>
-	<br>
-	<br>
 	
-	<input type="text" name="clienteOrden" placeholder="compañia">
+<!-- FORMULARIO PARA INGRESAR NUEVA ORDEN DE PRODUCCIÒN -->
+
+	<form method = "POST" id = "pro" onchange = "return validaProduccion()">
 	<br>
 	<br>
-	Proceso:
-	<input type="radio" name="procesoOrden" <?php if (isset($procesoOrden) && $procesoOrden == 'cuero')  ?>>
+	 	
+	<time datetime="fecha"><?php echo date("D d F H:i:s");?></time>
+	<br>
+	<br>
+	<input type="text" name="numeroOrden" id="tres" value = "" placeholder=" No. de Orden" required=""><span class="error">*</span>
+	<br>
+	<br>
+	<input type="text" name="clienteOrden" id = "uno" value="" placeholder=" Cliente" required=""><span class="error">*</span>
+	<br>
+	<br>
+	<input type="number" name="cantidadOrden" id = "cantidadOrden" value="cantidadOrden" placeholder=" Cantidad" required=""><span class="error">*</span>
+	
+	<input type="text" name="colorOrden" id="colorOrden" value="" placeholder=" Color" required=""><span class = "error">*<label for="error"></label></span>
+	<br>
+	<br>
+	CATEGORIA:
+	<input type="radio" name="categoriaOrden" value = "CUERO" required>
 	<label for="Cuero">Cuero</label>
-	<input type="radio" name="procesoOrden">
-	<label for="Lado">Lado</label>
-	<input type="radio" name="procesoOrden">
-	<label for="Delantero">Delantero</label>
+	<input type="radio" name="categoriaOrden" value = "LADO" required>
+	<label for="lado">Lado</label>
+	<input type="radio" name="categoriaOrden"  value = "DELANTERO" required>
+	<label for="delantero">Delantero</label><span class="error">*</span>
+	<br>
+	<br>
+	PROCESO:
+	<select required="" name="procesoOrden" >
+		<option value="HUMEDO">HUMEDO</option>
+		<option value="DESVENADO">DESVENADO</option>
+		<option value="BAUCHE">BAUCHE</option>
+		<option value="WELT">WELT</option>
+	</select><span class="error">*</span>
+	<br>
+	<br>
+	Observaciones: <textarea id = "observaciones" name = observaciones rows="5" cols="50"></textarea>
+	<br>
 	<br>
 	<input type="submit" value="Guardar"  name="">
 </form>
+
+
