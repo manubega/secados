@@ -10,7 +10,7 @@ if (!$_SESSION['root']) {
  =            OPCIONES: NUEVO EDITAR ELIMINAR LISTAR BUSCAR            =
  ====================================================================-->
  <div id = "prod1"><!-- DIVISION UNO -->
- 
+
  <div class="subdiv"> <!-- DIVISION DOS -->
  
   <a href="principal.php?action=produccion&&opcion=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>

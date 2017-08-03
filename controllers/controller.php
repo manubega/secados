@@ -31,8 +31,7 @@ public function listaProduccionController(){
 	//print_r($respuesta);
 	echo "<br />";
 	$no = 1;
-	echo "<table border = '1'>";
-	echo "<th>Numero</th><th>No. Orden</th><th>CLiente</th><th>Cantidad</th><th>Color</th><th>Categoria</th><th>Proceso</th><th>Observaciones</th>";
+	
 		foreach ($respuesta as $fila => $columna): 
 			?>
 
@@ -44,13 +43,12 @@ public function listaProduccionController(){
 		<td><?php echo $columna['color']?></td>
 		<td><?php echo $columna['categoria'] ?></td>
 		<td><?php echo $columna['proceso']?></td>
-		<td><?php echo $columna['observaciones']?></td>
+		<td><textarea><?php echo $columna['observaciones']?></textarea></td>
 		</tr>
   <?php 
      $no++;
   endforeach;
-   echo '<br />';
-    echo "</table>";
+  
  
 
 
