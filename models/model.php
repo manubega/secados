@@ -8,31 +8,61 @@ class ClsModel extends Conexion{
 		//REALIZA LA CONEXION A LA BASE DE DATOS
 	
 
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE numOrden = :numOrden");
+		$stmt = Conexion::conectar()->prepare("SELECT id_cliente, nombre FROM clientes WHERE nombre = :nombre");
+
+		$stmt->bindParam(":nombre", $datosModel['nombre'], PDO::PARAM_STR);
+		$stmt->execute();
+		if($row = $stmt->fetch(PDO::FETCH_NUM)){
+			$dato = $row['0'];
+			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, id_cliente,cantidad,color,categoria,proceso,observaciones) VALUES (:numOrden, :id_cliente, :cantidad, :color, :categoria, :proceso, :observaciones)");
+		$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
+		$stmt->bindParam(":id_cliente", $dato, PDO::PARAM_INT);
+		$stmt->bindParam(":cantidad", $datosModel['cantidad'], PDO::PARAM_INT);
+		$stmt->bindParam(":color", $datosModel['color'], PDO::PARAM_STR);
+		$stmt->bindParam(":categoria", $datosModel['categoria'], PDO::PARAM_STR);
+		$stmt->bindParam(":proceso", $datosModel['proceso'], PDO::PARAM_STR);
+		$stmt->bindParam(":observaciones", $datosModel['observaciones'], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+			return 'EXITO';
+		}
+
+		else{
+			return 'ERROR';
 
 		
+		}
 
 
-		$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
-		$stmt->execute();
 
-		return $stmt->fetch();
-	
+		}
 
 }
 
-}
-		/*$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, idCliente, cantidad, color, categoria, proceso, observaciones) VALUES (:numero, :cliente, :cantidad, :color, :categoria, :proceso, :observaciones)");
-		$stmt->bindParam(":numero", $datosController['numero'], PDO::PARAM_STR);
-		$stmt->bindParam(":cliente", $idCliente, PDO::PARAM_STR);
-		$stmt->bindParam(":cantidad", $datosController['cantidad'], PDO::PARAM_STR);
-		$stmt->bindParam(":color", $datosController['color'], PDO::PARAM_STR);
-		$stmt->bindParam(":categoria", $datosController['categoria'], PDO::PARAM_STR);
-		$stmt->bindParam(":proceso", $datosController['proceso'], PDO::PARAM_STR);
-		$stmt->bindParam(":numOrden", $datosController['numero'], PDO::PARAM_STR);*/
+public function listaProduccionModel($tabla,$tabla2){
 
-$datosController = array('numOrden' => 'nm45');
+	$stmt = Conexion::conectar()->prepare("SELECT numOrden, nombre, cantidad, color, categoria, proceso, observaciones FROM $tabla, $tabla2 WHERE clientes.id_cliente = orden.id_cliente");
+	$stmt->execute();
+	return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+}//END CLASS
+
+/*$datosController = array('numOrden' => 'WR44',
+						 'nombre' => 'MANUEL',
+						 'cantidad' => '100',
+						 'color' => 'VERDE',
+						 'categoria' => 'LADO',
+						 'proceso' => 'DESVENADO',
+						 'observaciones' => 'comentario89');
 $a = new ClsModel();
-$b = $a->registroProduccionModel($datosController, 'servicio');
-var_dump($b);
+$b = $a->listaProduccionModel('orden', 'clientes');
+//var_dump($b);
+$no = 1;
+foreach ($b as $fila => $columna) {
+    echo $no . '- ' . $fila . ' => ' . $columna['numOrden'] .' => '. $columna['nombre'];
+    echo '<br />';
+    $no++;
+}*/
+
 ?>

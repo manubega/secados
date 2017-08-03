@@ -56,7 +56,7 @@ if (isset($_GET['opcion'])) {
 		}
 	}
 		elseif ($_GET['opcion'] == 'ver') {
-			echo "VER";
+			include_once 'lista_produccion.php';
 		}
 }
 ?>
@@ -71,9 +71,3 @@ if (isset($_GET['opcion'])) {
 
 
 
-<?php
-
-$obj = new ClcController();
-$obj -> registroProduccionController();
-
-?>

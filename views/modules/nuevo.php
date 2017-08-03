@@ -8,7 +8,7 @@
 	<time datetime="fecha"><?php echo date("D d F H:i:s");?></time>
 	<br>
 	<br>
-	<input type="text" name="numeroOrden" id="tres" value = "" placeholder=" No. de Orden" required=""><span class="error">*</span>
+	<input type="text" name="numOrden" id="tres" value = "" placeholder=" No. de Orden" required=""><span class="error">*</span>
 	<br>
 	<br>
 	<input type="text" name="clienteOrden" id = "uno" value="" placeholder=" Cliente" required=""><span class="error">*</span>
@@ -37,10 +37,16 @@
 	</select><span class="error">*</span>
 	<br>
 	<br>
-	Observaciones: <textarea id = "observaciones" name = observaciones rows="5" cols="50"></textarea>
+	Observaciones: <textarea id = "observaciones" name = "observacionesOrden" rows="5" cols="50"></textarea>
 	<br>
 	<br>
 	<input type="submit" value="Guardar"  name="">
 </form>
 
+<?php
+
+$obj = new ClcController();
+$obj -> registroProduccionController();
+
+?>
 
