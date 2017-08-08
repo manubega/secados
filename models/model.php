@@ -37,14 +37,18 @@ class ClsModel extends Conexion{
 
 		}
 
-}
+}//END FUNCTION
+//SELECCIONA LOS DATOS DE LA TABLA orden y clientes 
 
 public function listaProduccionModel($tabla,$tabla2){
 
-	$stmt = Conexion::conectar()->prepare("SELECT numOrden, nombre, cantidad, color, categoria, proceso, observaciones FROM $tabla, $tabla2 WHERE clientes.id_cliente = orden.id_cliente");
+	$stmt = Conexion::conectar()->prepare("SELECT numOrden, nombre, cantidad, color, categoria, proceso, fecha_ingreso FROM $tabla, $tabla2 WHERE clientes.id_cliente = orden.id_cliente ORDER BY fecha_ingreso");
+	
 	$stmt->execute();
 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+	$stmt->close();
+}//END FUNCTION
+
 
 }//END CLASS
 

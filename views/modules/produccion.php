@@ -58,15 +58,13 @@ if (isset($_GET['opcion'])) {
 		elseif ($_GET['opcion'] == 'ver') {
 			include_once 'lista_produccion.php';
 		}
+		elseif ($_GET['opcion'] == 'buscar') {
+			include_once 'vbuscar.php';
+		}
 }
 ?>
  	
  </div><!-- DIVISION 2 -->
-
- 
- 
-	
-
 </div><!-- DIVISION 1 -->
 
 

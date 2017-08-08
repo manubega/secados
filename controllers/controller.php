@@ -43,7 +43,7 @@ public function listaProduccionController(){
 		<td><?php echo $columna['color']?></td>
 		<td><?php echo $columna['categoria'] ?></td>
 		<td><?php echo $columna['proceso']?></td>
-		<td><textarea><?php echo $columna['observaciones']?></textarea></td>
+		<td><?php echo $columna['fecha_ingreso']?></td>
 		</tr>
   <?php 
      $no++;

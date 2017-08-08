@@ -24,11 +24,6 @@ include_once 'models/verifica_model.php';
 
 			$respuesta = VerificaLogin::verifica($datosController, 'usuarios');
 
-
-
-
-
-
 			//IF VALIDANDO EL USUARIO INGRESADO CON EL USUARIO DE LA BASE DE DATOS Y VALIDA SI ES ADMINISTRADOR
 				if ($respuesta['usuario'] == $user) {//if-usaurio
 					//VALIDANDO PASSWORD CON EL PASSWORD DE LA BASE DE DATOS

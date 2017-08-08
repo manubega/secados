@@ -38,7 +38,7 @@ if (password != "") {
 	var caracteres = password.length;
 	var expresion = /^[a-zA-Z0-9]*$/;
 
-	if (caracteres < 6) {
+	if (caracteres <= 5) {
 
 			//document.querySelector("label[for='usuarioIngreso']").innerHTML += "<br>Escribe menos de 6 caracteres...</br>"
 			alert('[ADVERTENCIA] Escriba 6 o mas caracteres...');
