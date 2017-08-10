@@ -25,13 +25,15 @@ class ClsModel extends Conexion{
 
 		if($stmt->execute()){
 			return 'EXITO';
-		}
+			$stmt->close();
+		}//END IF
 
 		else{
 			return 'ERROR';
+			$stmt->close();
 
 		
-		}
+		}//END ELSE
 
 
 
@@ -42,12 +44,22 @@ class ClsModel extends Conexion{
 
 public function listaProduccionModel($tabla,$tabla2){
 
-	$stmt = Conexion::conectar()->prepare("SELECT numOrden, nombre, cantidad, color, categoria, proceso, fecha_ingreso FROM $tabla, $tabla2 WHERE clientes.id_cliente = orden.id_cliente ORDER BY fecha_ingreso");
-	
+	$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla, $tabla2 WHERE clientes.id_cliente = orden.id_cliente ORDER BY fecha_ingreso DESC ");
 	$stmt->execute();
 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$stmt->close();
 }//END FUNCTION
+
+public function editarProduccionModel($datosModel,$tabla1){
+
+	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, numOrden, cantidad, color, categoria, proceso, fecha_ingreso FROM $tabla1 WHERE id_codigo = :id_codigo");
+	$stmt->bindParam(":id_codigo", $datosModel, PDO::PARAM_INT);
+	$stmt->execute();
+	 return $stmt->fetch();
+
+	  	
+	  }//END
+	  
 
 
 }//END CLASS

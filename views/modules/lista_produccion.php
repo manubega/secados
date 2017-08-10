@@ -16,7 +16,18 @@ tr:nth-child(even) {
 }
 </style>
 <table id = "" class="display" collspacing = "0" width="100%">
-	<th>No.</th><th>No. Orden</th><th>Cliente</th><th>Cantidad</th><th>Color</th><th>Categoria</th><th>Proceso</th><th>Fecha de Registro</th>
+	<tr>
+		<th>No.</th>
+		<th>No. Orden</th>
+		<th>Cliente</th>
+		<th>Cantidad</th>
+		<th>Color</th>
+		<th>Categoria</th>
+		<th>Proceso</th>
+		<th>Fecha de Registro</th>
+		<th></th>
+		<th></th>
+	<tr>
 
 <?php 
 

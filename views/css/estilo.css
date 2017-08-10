@@ -151,7 +151,7 @@ div.titulo p{
 }
 
 form#pro input#cantidadOrden{
-    width: 77px;
+    width: 80px;
     height: 20px;
     font: 15px normal normal uppercase helvetica, arial, serif;
 }
@@ -184,7 +184,7 @@ form#pro input[type = "radio"]{
 }
 
 form#pro select{
-    width: 100px;
+    width: 280px;
     height: 30px;
 }
 .error {color: #FF0000;}

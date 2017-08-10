@@ -33,6 +33,7 @@ public function listaProduccionController(){
 	$no = 1;
 	
 		foreach ($respuesta as $fila => $columna): 
+			$id = $columna['id_cliente'];
 			?>
 
 		<tr>	
@@ -44,6 +45,8 @@ public function listaProduccionController(){
 		<td><?php echo $columna['categoria'] ?></td>
 		<td><?php echo $columna['proceso']?></td>
 		<td><?php echo $columna['fecha_ingreso']?></td>
+		<td><?php echo '<a href = "principal.php?action=produccion&opcion=editar&id='.$columna["id_codigo"].'"><i class = "fa fa-pencil-square-o">'?></td>
+		<td><?php echo '<a href = "principal.php?action=produccion&opcion=eliminar&id='.$columna["id_codigo"].'"><i class = "fa fa-minus-square-o">'?></td>
 		</tr>
   <?php 
      $no++;
@@ -52,7 +55,18 @@ public function listaProduccionController(){
  
 
 
-}
+}//END FUNCTION
+
+public function editarProduccionController(){
+
+	$datosController = $_GET['id'];
+	$respuesta = ClsModel::editarProduccionModel($datosController,'orden');
+	if ($respuesta) {
+	echo $respuesta['id_codigo'];
+	echo "<br>";
+	echo $respuesta['numOrden'];
+	}
+}//END FUNCTION
 
 }//END CLASS
 //echo '<tr><td>'.$no.'<td>'.$columna['numOrden'].'</td><td>'.$columna['nombre'].'</td></tr>';

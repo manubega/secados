@@ -30,3 +30,5 @@ tr:nth-child(even) {
     </div>
 </section>
  <script type="text/javascript" src = "../../views/js/jbuscar.js"></script>
+
+

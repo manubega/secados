@@ -25,15 +25,28 @@
 	<input type="radio" name="categoriaOrden" value = "LADO" required>
 	<label for="lado">Lado</label>
 	<input type="radio" name="categoriaOrden"  value = "DELANTERO" required>
-	<label for="delantero">Delantero</label><span class="error">*</span>
+	<label for="delantero">Delantero</label>
+	<input type="radio" name="categoriaOrden"  value = "REPROCESO" required>
+	<label for="delantero">Reproceso</label><span class="error">*</span>
 	<br>
 	<br>
 	PROCESO:
 	<select required="" name="procesoOrden" >
-		<option value="HUMEDO">HUMEDO</option>
-		<option value="DESVENADO">DESVENADO</option>
-		<option value="BAUCHE">BAUCHE</option>
-		<option value="WELT">WELT</option>
+		<option value="">Seleccione un proceso</option>
+		<option value="ESC. Y DESV. BAUCE">1 - ESCURRIDO Y DESVENADO (BAUCE)</option>
+		<option value="ESC. Y DESV.  POLETO">2 - ESCURRIDO Y DESVENADO (POLETO)</option>
+		<option value="WET STRECH">3 - WET STRECH</option>
+		<option value="VACIO MAQ. CARTIGLIANO">4 - VACIO (MAQ. CARTIGLIANO)</option>
+		<option value="VACIO MAQ. IMPREGNACION">5 - VACIO IMPREGNACION</option>
+		<option value="COLG. AEREO NEW TRADING">6 - COLGADO AEREO (NEW TRADING)</option>
+		<option value="COLG. AEREO HUMEDO">7 - COLGADO AEREO (HUMEDO)</option>
+		<option value="AFLOJADO MAQ. CART">8 - AFLOJADO (MAQ. CARTIGLIANO)</option>
+		<option value="TOGGLEN">9 - TOGGLEN</option>
+		<option value="PULIDO">10 - PULIDO</option>
+		<option value="PULIDO CON ACABADO">11 - PULIDO C/ ACABADO</option>
+		<option value="TAMBOREO">12 - TAMBOREO</option>
+		<option value="TEÑIDO">13 - TEÑIDO</option>
+
 	</select><span class="error">*</span>
 	<br>
 	<br>
