@@ -3,11 +3,11 @@
 		$mysqli = new mysqli("localhost", "root", "", "dbsecados");
 $salida = "";
 
-$query = "SELECT * FROM orden, clientes WHERE clientes.id_cliente = orden.id_cliente ORDER BY fecha_ingreso";
+$query = "SELECT * FROM orden ORDER BY fecha_ingreso DESC";
 
 if (isset($_POST['consulta'])) {
 	$q  = $mysqli->real_escape_string($_POST['consulta']);
-	$query = "SELECT * FROM orden, clientes WHERE orden.id_cliente = clientes.id_cliente LIKE '%".$q."%' OR nombre LIKE '%".$q."%' OR  numOrden LIKE '%".$q."%' OR fecha_ingreso LIKE '%".$q."%'";
+	$query = "SELECT * FROM orden WHERE id_cliente LIKE '%".$q."%' OR nombre LIKE '%".$q."%' OR  numOrden LIKE '%".$q."%' OR fecha_ingreso LIKE '%".$q."%' ORDER BY fecha_ingreso DESC";
 }
 
 $resultado = $mysqli->query($query);
@@ -45,8 +45,8 @@ if ($resultado->num_rows > 0) {
 											<td>".$fila['categoria']."</td>
 											<td>".$fila['proceso']."</td>
 											<td>".$fila['fecha_ingreso']."</td>	
-											<td><a href='principal.php?action=produccion&&opcion=buscar'><i class='fa fa-minus-square-o' aria-hidden='true'></i></a></td>
-											<td><a href='principal.php?action=produccion&&opcion=buscar'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a></td>
+											<td><a href = 'principal.php?action=produccion&opcion=editar&id=".$fila['id_codigo']."'><i class = 'fa fa-pencil-square-o'></a></td>
+											<td><a href = 'principal.php?action=produccion&opcion=eliminar&id=".$fila['id_codigo']."'><i class = 'fa fa-minus-square-o'></a></td>
 										</tr>";
 										$i ++;
 						}

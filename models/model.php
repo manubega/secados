@@ -13,10 +13,12 @@ class ClsModel extends Conexion{
 		$stmt->bindParam(":nombre", $datosModel['nombre'], PDO::PARAM_STR);
 		$stmt->execute();
 		if($row = $stmt->fetch(PDO::FETCH_NUM)){
-			$dato = $row['0'];
-			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, id_cliente,cantidad,color,categoria,proceso,observaciones) VALUES (:numOrden, :id_cliente, :cantidad, :color, :categoria, :proceso, :observaciones)");
+			$datoID = $row['0'];
+			$datoNombre = $row['1'];
+			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, id_cliente,nombre,cantidad,color,categoria,proceso,observaciones) VALUES (:numOrden, :id_cliente, :nombre, :cantidad, :color, :categoria, :proceso, :observaciones)");
 		$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
-		$stmt->bindParam(":id_cliente", $dato, PDO::PARAM_INT);
+		$stmt->bindParam(":id_cliente", $datoID, PDO::PARAM_INT);
+		$stmt->bindParam(":nombre", $datoNombre, PDO::PARAM_STR);
 		$stmt->bindParam(":cantidad", $datosModel['cantidad'], PDO::PARAM_INT);
 		$stmt->bindParam(":color", $datosModel['color'], PDO::PARAM_STR);
 		$stmt->bindParam(":categoria", $datosModel['categoria'], PDO::PARAM_STR);
@@ -52,7 +54,7 @@ public function listaProduccionModel($tabla,$tabla2){
 
 public function editarProduccionModel($datosModel,$tabla1){
 
-	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, numOrden, cantidad, color, categoria, proceso, fecha_ingreso FROM $tabla1 WHERE id_codigo = :id_codigo");
+	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, nombre, numOrden, cantidad, color, categoria, proceso, observaciones, fecha_ingreso FROM $tabla1 WHERE id_codigo = :id_codigo");
 	$stmt->bindParam(":id_codigo", $datosModel, PDO::PARAM_INT);
 	$stmt->execute();
 	 return $stmt->fetch();

@@ -16,13 +16,14 @@ if (!$_SESSION['root']) {
   <a href="principal.php?action=produccion&&opcion=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
   <?php if ($_SESSION['root'] == 'si') { ?>
 
-  		<a href="principal.php?action=produccion&&opcion=ver"><i class="fa fa-street-view" aria-hidden="true"></i></a> 
+  		<a href="principal.php?action=produccion&&opcion=ver"><i class="fa fa-table" aria-hidden="true"></i></a> 
  <?php  } 
    ?>
   
 	
-	<a href="principal.php?action=produccion&&opcion=buscar"><i class="fa fa-search" aria-hidden="true"></i>
-</a>
+	<!-- <a href="principal.php?action=produccion&&opcion=buscar"><i class="fa fa-search" aria-hidden="true"></i>
+</a> -->
+	
 
 	<!--====  End of OPCIONES: NUEVO EDITAR ELIMINAR LISTAR BUSCAR  ====-->
 
@@ -34,7 +35,7 @@ if (isset($_GET['opcion'])) {
 	}
 	
 		if ($_GET['opcion'] == 'ver') {
-		include_once 'lista_produccion.php';
+		include_once 'vbuscar.php';
 
 	}
 	if ($_GET['opcion'] == 'editar') {
