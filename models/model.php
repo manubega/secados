@@ -8,9 +8,9 @@ class ClsModel extends Conexion{
 		//REALIZA LA CONEXION A LA BASE DE DATOS
 	
 
-		$stmt = Conexion::conectar()->prepare("SELECT id_cliente, nombre FROM clientes WHERE nombre = :nombre");
+		$stmt = Conexion::conectar()->prepare("SELECT id_codigo, nombre FROM orden WHERE id = :id");
 
-		$stmt->bindParam(":nombre", $datosModel['nombre'], PDO::PARAM_STR);
+		$stmt->bindParam(":id", $datosModel['id'], PDO::PARAM_INT);
 		$stmt->execute();
 		if($row = $stmt->fetch(PDO::FETCH_NUM)){
 			$datoID = $row['0'];
@@ -61,6 +61,10 @@ public function editarProduccionModel($datosModel,$tabla1){
 
 	  	
 	  }//END
+
+	  public function actualizarProduccionModel($datosModel,$tabla){
+
+	  }
 	  
 
 

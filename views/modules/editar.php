@@ -12,8 +12,8 @@
 	<br>
 	<?php 
 
-$editar = new ClcController();
-$editar->editarProduccionController();
+		$editar = new ClcController();
+		$editar->editarProduccionController();
 
  ?>
 	<br>
