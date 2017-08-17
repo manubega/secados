@@ -8,9 +8,9 @@ class ClsModel extends Conexion{
 		//REALIZA LA CONEXION A LA BASE DE DATOS
 	
 
-		$stmt = Conexion::conectar()->prepare("SELECT id_codigo, nombre FROM orden WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("SELECT id_cliente, nombre FROM clientes WHERE nombre = :nombre");
 
-		$stmt->bindParam(":id", $datosModel['id'], PDO::PARAM_INT);
+		$stmt->bindParam(":nombre", $datosModel['nombre'], PDO::PARAM_STR);
 		$stmt->execute();
 		if($row = $stmt->fetch(PDO::FETCH_NUM)){
 			$datoID = $row['0'];
@@ -64,13 +64,29 @@ public function editarProduccionModel($datosModel,$tabla1){
 
 	  public function actualizarProduccionModel($datosModel,$tabla){
 
-	  	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, nombre, numOrden, cantidad, color, categoria, proceso, observaciones, fecha_ingreso FROM $tabla WHERE id_codigo = :id_codigo");
-	  	$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  numOrden = :numOrden, id_cliente = :id_cliente, nombre = :nombre, cantidad = :cantidad, color = :color, categoria = :categoria, proceso = :proceso, observaciones = :observaciones WHERE id_codigo = :id_codigo");
-		$stmt->bindParam(":id_codigo", $datosModel['id'], PDO::PARAM_INT);
-		if($stmt->execute()){
-			return 'EXITO';
+	  	$stmt = Conexion::conectar()->prepare("SELECT id_cliente, nombre FROM clientes WHERE nombre = :nombre");
+		$stmt->bindParam(":nombre", $datosModel['nombre'], PDO::PARAM_STR);
+		$stmt->execute();
+		if($row = $stmt->fetch(PDO::FETCH_NUM)){
+			$datoID = $row['0'];
+			$datoNombre = $row['1'];
+			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET numOrden = :numOrden, id_cliente = :id_cliente, nombre = :nombre, cantidad = :cantidad, color = :color, categoria = :categoria, proceso = :proceso, observaciones = :observaciones WHERE id_codigo = :id_codigo");
+			$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
+			$stmt->bindParam(":id_cliente", $datoID, PDO::PARAM_INT);
+			$stmt->bindParam(":nombre", $datoNombre, PDO::PARAM_STR);
+			$stmt->bindParam(":cantidad", $datosModel['cantidad'], PDO::PARAM_INT);
+			$stmt->bindParam(":color", $datosModel['color'], PDO::PARAM_STR);
+			$stmt->bindParam(":categoria", $datosModel['categoria'], PDO::PARAM_STR);
+			$stmt->bindParam(":proceso", $datosModel['proceso'], PDO::PARAM_STR);
+			$stmt->bindParam(":observaciones", $datosModel['observaciones'], PDO::PARAM_STR);
+			$stmt->bindParam(":id_codigo", $datosModel['id'], PDO::PARAM_INT);
+			if ($stmt->execute()) {
+				return 'EXITO';
 			$stmt->close();
-		}//END IF
+			}
+			else
+				echo "ERROR ERROR";
+		}
 
 		else{
 			return 'ERROR';
