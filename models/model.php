@@ -64,6 +64,20 @@ public function editarProduccionModel($datosModel,$tabla1){
 
 	  public function actualizarProduccionModel($datosModel,$tabla){
 
+	  	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, nombre, numOrden, cantidad, color, categoria, proceso, observaciones, fecha_ingreso FROM $tabla WHERE id_codigo = :id_codigo");
+	  	$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  numOrden = :numOrden, id_cliente = :id_cliente, nombre = :nombre, cantidad = :cantidad, color = :color, categoria = :categoria, proceso = :proceso, observaciones = :observaciones WHERE id_codigo = :id_codigo");
+		$stmt->bindParam(":id_codigo", $datosModel['id'], PDO::PARAM_INT);
+		if($stmt->execute()){
+			return 'EXITO';
+			$stmt->close();
+		}//END IF
+
+		else{
+			return 'ERROR';
+			$stmt->close();
+
+		
+		}//END ELSE
 	  }
 	  
 

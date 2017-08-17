@@ -87,7 +87,7 @@ public function editarProduccionController(){
 	<br>
 	<br>
 	PROCESO:
-	<select required="" name=""	>
+	<select required="" name="procesoOrden"	>
 		<option value="">Seleccione un proceso</option>
 		<option <?php if($respuesta['proceso'] == "ESC. Y DESV. BAUCE") echo 'selected';  ?> value="ESC. Y DESV. BAUCE">1 - ESCURRIDO Y DESVENADO (BAUCE)</option>
 		<option <?php if($respuesta['proceso'] == "ESC. Y DESV.  POLETO") echo 'selected';  ?> value="ESC. Y DESV.  POLETO">2 - ESCURRIDO Y DESVENADO (POLETO)</option>
@@ -112,11 +112,10 @@ public function editarProduccionController(){
 
 public function actualizarProduccionController(){
 
-	if (isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
+	if (isset($_POST['id']) && isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
 
-
-	$datosController = array('id' => $_POST['id'],
-							'numOrden' => $_POST['numOrden'],
+		$datosController = array('id' => $_POST['id'],
+								'numOrden' => $_POST['numOrden'],
 							'nombre' => $_POST['clienteOrden'],
 							'cantidad' => $_POST['cantidadOrden'],
 							'color' => $_POST['colorOrden'],
@@ -129,7 +128,10 @@ public function actualizarProduccionController(){
 
 		print_r($respuesta);
 
-			}//END IF	
+			}
+	
+
+				
 }//END FUNCTION
 
 }//END CLASS
