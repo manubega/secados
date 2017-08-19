@@ -45,8 +45,8 @@ if ($resultado->num_rows > 0) {
 											<td>".$fila['categoria']."</td>
 											<td>".$fila['proceso']."</td>
 											<td>".$fila['fecha_ingreso']."</td>	
-											<td><a href = 'principal.php?action=produccion&opcion=editar&id=".$fila['id_codigo']."'><i class = 'fa fa-pencil-square-o'></a></td>
-											<td><a href = 'principal.php?action=produccion&opcion=eliminar&id=".$fila['id_codigo']."'><i class = 'fa fa-minus-square-o'></a></td>
+											<td><a href = 'principal.php?action=editar&id=".$fila['id_codigo']."'><i class = 'fa fa-pencil-square-o'></a></td>
+											<td><a href = 'principal.php?action=produccion&idBorrar=".$fila['id_codigo']."'><i class = 'fa fa-minus-square-o'></a></td>
 										</tr>";
 										$i ++;
 						}

@@ -1,5 +1,4 @@
 <?php 
-
 include_once 'conexion.php';
 
 class ClsModel extends Conexion{
@@ -37,9 +36,7 @@ class ClsModel extends Conexion{
 		
 		}//END ELSE
 
-
-
-		}
+		}//END IF
 
 }//END FUNCTION
 //SELECCIONA LOS DATOS DE LA TABLA orden y clientes 
@@ -59,7 +56,6 @@ public function editarProduccionModel($datosModel,$tabla1){
 	$stmt->execute();
 	 return $stmt->fetch();
 
-	  	
 	  }//END
 
 	  public function actualizarProduccionModel($datosModel,$tabla){
@@ -86,6 +82,7 @@ public function editarProduccionModel($datosModel,$tabla1){
 			}
 			else
 				echo "ERROR ERROR";
+			$stmt->close();
 		}
 
 		else{
@@ -94,7 +91,23 @@ public function editarProduccionModel($datosModel,$tabla1){
 
 		
 		}//END ELSE
-	  }
+	  }//END FUNCTION
+
+	  public function borrarProduccionModel($datosModel,$tabla){
+
+	  	$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_codigo = :id_codigo");
+	  	$stmt -> bindParam(":id_codigo", $datosModel['idBorrar'], PDO::PARAM_INT);
+	  	if ($stmt -> execute()) {
+	  		return 'EXITO';
+	  		$stmt -> close();
+	  	}
+	  	else{
+	  		return 'ERROR';
+	  		$stmt -> close();
+	  	}
+
+
+	  }//END FUNCTION
 	  
 
 

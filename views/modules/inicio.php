@@ -1,14 +1,8 @@
 
 <?php 
-
 session_start();
 
-
 if (!$_SESSION['root']) {
-
-
-
-	
 	header('Location:../../index.php');
 }
 

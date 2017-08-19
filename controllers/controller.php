@@ -1,7 +1,7 @@
 
 <?php 
 //include_once '../models/model.php';
-
+ob_start();
 class ClcController{
 
 public function registroProduccionController(){
@@ -116,23 +116,39 @@ public function actualizarProduccionController(){
 
 		$datosController = array('id' => $_POST['id'],
 								'numOrden' => $_POST['numOrden'],
-							'nombre' => $_POST['clienteOrden'],
-							'cantidad' => $_POST['cantidadOrden'],
-							'color' => $_POST['colorOrden'],
-							'categoria' => $_POST['categoriaOrden'],
-							'proceso' => $_POST['procesoOrden'],
-							'observaciones' => $_POST['observacionesOrden']);
+								'nombre' => $_POST['clienteOrden'],
+								'cantidad' => $_POST['cantidadOrden'],
+								'color' => $_POST['colorOrden'],
+								'categoria' => $_POST['categoriaOrden'],
+								'proceso' => $_POST['procesoOrden'],
+								'observaciones' => $_POST['observacionesOrden']);
 						
 
 			$respuesta = ClsModel::actualizarProduccionModel($datosController, 'orden');
 
-		print_r($respuesta);
+		if ($respuesta == 'EXITO') {
+			header('Location:principal.php?action=cambio&orden="'.$datosController['numOrden'].'"');
+			
+		}//END IF
+		else
+			echo "ERRORR";
 
-			}
-	
-
+			}//END IF
 				
 }//END FUNCTION
+
+public function borrarProduccionController(){
+	if (isset($_GET['idBorrar'])) {
+		
+		$datosController = array('idBorrar' => $_GET['idBorrar']);
+
+		$respuesta = ClsModel::borrarProduccionModel($datosController,'orden');
+
+		if ($respuesta == 'EXITO') {
+			header('Location:principal.php?action=tabla');
+		}
+	}
+}
 
 }//END CLASS
 //echo '<tr><td>'.$no.'<td>'.$columna['numOrden'].'</td><td>'.$columna['nombre'].'</td></tr>';

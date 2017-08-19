@@ -1,3 +1,19 @@
+
+<?php 
+session_start();
+
+if (!$_SESSION['root']) {
+    header('Location:../../index.php');
+}
+
+if(isset($_GET['action'])){
+  if ($_GET['action'] == 'cambio') {
+    echo '<script>alert(" SE REALIZO LA ACTUALIZACIÒN DE FORMA CORRECTA")</script>';
+    echo $_GET['orden'];
+  }
+}
+
+ ?>
  <style>
 table {
     font-family: arial, sans-serif;
@@ -16,6 +32,18 @@ tr:nth-child(even) {
 }
 </style>
 
+<div id = "prod1"><!-- DIVISION UNO -->
+
+ <div class="subdiv"> <!-- DIVISION DOS -->
+ 
+  <a href="principal.php?action=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
+  <?php if ($_SESSION['root'] == 'si') { ?>
+
+        <a href="principal.php?action=tabla"><i class="fa fa-table" aria-hidden="true"></i></a> 
+ <?php  
+} 
+   ?>   
+
 <script type="text/javascript" src = "../../views/js/jquery-3.0.0.min.js"></script>
 <section class="principal">
 	<div class="form-1-2">
@@ -30,5 +58,7 @@ tr:nth-child(even) {
     </div>
 </section>
  <script type="text/javascript" src = "../../views/js/jbuscar.js"></script>
+  </div><!-- DIVISION 2 -->
+</div><!-- DIVISION 1 -->
 
 
