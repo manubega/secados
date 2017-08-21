@@ -5,17 +5,40 @@ if (!$_SESSION['root']) {
 }
 
  ?>
-<div id = "prod1"><!-- DIVISION UNO -->
+  <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 98%;
+}
 
- <div class="subdiv"> <!-- DIVISION DOS -->
- 
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+</style>
+<div id = "prod1"><!-- DIVISION UNO -->
+ <div class="row"> <!-- DIVISION DOS -->
+ <div class="col-sm-6">
+ 	
   <a href="principal.php?action=nuevo"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
-  <?php if ($_SESSION['root'] == 'si') { ?>
+   <?php if ($_SESSION['root'] == 'si') { ?>
 
   		<a href="principal.php?action=tabla"><i class="fa fa-table" aria-hidden="true"></i></a> 
- <?php  
-} 
-   ?>	
+ <?php  } 
+   ?>
+   <?php if ($_SESSION['root'] == 'no') { ?>
+
+  		<a href="principal.php?action=tablanoroot"><i class="fa fa-table" aria-hidden="true"></i></a>
+ <?php 
+  } 
+   ?>
+
 <!-- FORMULARIO PARA INGRESAR NUEVA ORDEN DE PRODUCCIÒN -->
 
 	<form method = "POST" id = "pro" onchange = "return validaProduccion()">
@@ -62,7 +85,7 @@ if (!$_SESSION['root']) {
 		<option value="PULIDO">10 - PULIDO</option>
 		<option value="PULIDO CON ACABADO">11 - PULIDO C/ ACABADO</option>
 		<option value="TAMBOREO">12 - TAMBOREO</option>
-		<option value="TEÑIDO">13 - TEÑIDO</option>
+		<option value="TENIDO">13 - TEÑIDO</option>
 
 	</select><span class="error">*</span>
 	<br>
@@ -79,6 +102,25 @@ $obj = new ClcController();
 $obj -> registroProduccionController();
 
 ?>
+ </div>
+ <!-- DIVISION DONDE SE ENCUNETRAN LOS CLIENTES -->
+ 
+  <div class="col-sm-6" >
+  	<script type="text/javascript" src = "../../views/js/jquery-3.0.0.min.js"></script>
+<section class="principal">
+	<div class="form-1-2">
+		<label for="caja_busqueda"> Buscar:</label>
+		<input type="text" name="caja_busqueda" id="caja_busqueda">
+	</div>
+	<br>
+    <table id = "" class="display" collspacing = "0" width="100%">
+   
+	<div id="datos">
+        
+    </div>
+</section>
+ <script type="text/javascript" src = "../../views/js/jclientes.js"></script>
+  </div>
  </div><!-- DIVISION 2 -->
 </div><!-- DIVISION 1 -->
 

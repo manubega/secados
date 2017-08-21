@@ -7,12 +7,13 @@ class ClcController{
 public function registroProduccionController(){
 
 	if (isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
+		$nOrden = strtoupper($_POST['numOrden']);
+		$color = strtoupper($_POST['colorOrden']);
 
-
-	$datosController = array('numOrden' => $_POST['numOrden'],
+	$datosController = array('numOrden' => $nOrden,
 							'nombre' => $_POST['clienteOrden'],
 							'cantidad' => $_POST['cantidadOrden'],
-							'color' => $_POST['colorOrden'],
+							'color' => $color,
 							'categoria' => $_POST['categoriaOrden'],
 							'proceso' => $_POST['procesoOrden'],
 							'observaciones' => $_POST['observacionesOrden']);
@@ -101,7 +102,7 @@ public function editarProduccionController(){
 		<option <?php if($respuesta['proceso'] == "PULIDO") echo 'selected';  ?> value="PULIDO">10 - PULIDO</option>
 		<option <?php if($respuesta['proceso'] == "PULIDO CON ACABADO") echo 'selected';  ?> value="PULIDO CON ACABADO">11 - PULIDO C/ ACABADO</option>
 		<option <?php if($respuesta['proceso'] == "TAMBOREO") echo 'selected';  ?> value="TAMBOREO">12 - TAMBOREO</option>
-		<option <?php if($respuesta['proceso'] == "TEÑIDO") echo 'selected';  ?> value="TEÑIDO">13 - TEÑIDO</option>
+		<option <?php if($respuesta['proceso'] == "TENIDO") echo 'selected';  ?> value="TENIDO">13 - TEÑIDO</option>
 
 	</select><span class="error">*</span>
 	<br>
@@ -113,12 +114,13 @@ public function editarProduccionController(){
 public function actualizarProduccionController(){
 
 	if (isset($_POST['id']) && isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
-
+		$numOrden = strtoupper($_POST['numOrden']);
+		$color = strtoupper($_POST['colorOrden']);
 		$datosController = array('id' => $_POST['id'],
-								'numOrden' => $_POST['numOrden'],
+								'numOrden' => $numOrden,
 								'nombre' => $_POST['clienteOrden'],
 								'cantidad' => $_POST['cantidadOrden'],
-								'color' => $_POST['colorOrden'],
+								'color' => $color,
 								'categoria' => $_POST['categoriaOrden'],
 								'proceso' => $_POST['procesoOrden'],
 								'observaciones' => $_POST['observacionesOrden']);
@@ -139,6 +141,8 @@ public function actualizarProduccionController(){
 
 public function borrarProduccionController(){
 	if (isset($_GET['idBorrar'])) {
+
+		
 		
 		$datosController = array('idBorrar' => $_GET['idBorrar']);
 

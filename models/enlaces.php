@@ -25,6 +25,9 @@ class EnlacesPaginas{
 	else if ($enlacesModel == 'tabla' ) {
 		$module = "../../views/modules/vbuscar.php";
 	}
+	else if ($enlacesModel == 'tablanoroot'){
+		$module = "../../views/modules/vbuscarnoroot.php";
+	}
 	else if ($enlacesModel == 'editar' ) {
 		$module = "../../views/modules/editar.php";
 	}
@@ -38,5 +41,6 @@ class EnlacesPaginas{
 	return $module;
 }
 }
+
 
  ?>

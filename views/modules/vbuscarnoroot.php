@@ -48,13 +48,14 @@ tr:nth-child(even) {
  <?php 
   } 
   ?>
+  
+
 <script type="text/javascript" src = "../../views/js/jquery-3.0.0.min.js"></script>
 <section class="principal">
 	<div class="form-1-2">
 		<label for="caja_busqueda"> Buscar:</label>
 		<input type="text" name="caja_busqueda" id="caja_busqueda">
 	</div>
-  <br>
 	<br>
     <table id = "" class="display" collspacing = "0" width="100%">
    
@@ -62,7 +63,7 @@ tr:nth-child(even) {
         
     </div>
 </section>
- <script type="text/javascript" src = "../../views/js/jbuscar.js"></script>
+ <script type="text/javascript" src = "../../views/js/jbuscarnoroot.js"></script>
   </div><!-- DIVISION 2 -->
 </div><!-- DIVISION 1 -->
 

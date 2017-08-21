@@ -18,8 +18,19 @@ if (!$_SESSION['root']) {
   <?php if ($_SESSION['root'] == 'si') { ?>
 
   		<a href="principal.php?action=tabla"><i class="fa fa-table" aria-hidden="true"></i></a> 
- <?php  } 
+ <?php 
+  } 
    ?>
+   <?php if ($_SESSION['root'] == 'no') { ?>
+
+  		<a href="principal.php?action=tablanoroot"><i class="fa fa-table" aria-hidden="true"></i></a>
+ <?php 
+  } 
+   ?>
+   
+     		 
+
+  
   
 	
 	<!-- <a href="principal.php?action=produccion&&opcion=buscar"><i class="fa fa-search" aria-hidden="true"></i>

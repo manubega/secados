@@ -94,6 +94,10 @@ header{
             color:white;
             text-decoration:none;
         }
+        nav ul li a:hover{
+            color: green;
+            text-decoration: none;
+        }
 
         section{
             position:relative;
@@ -103,7 +107,7 @@ header{
             position: relative;
             border-radius: 20px;
             width: 800px;
-            height: 130px;
+            height: 220px;
             margin: 0 auto;
             margin-top: 100px;
             padding: 20px;
@@ -132,9 +136,8 @@ div.titulo p{
     position: relative;
     width: 98%;
     height: 100%;
-    border: 1px #ccc solid;
     padding-left: 20px;
-    padding-top: 15px;
+    padding-top: 5px;
     background-color:rgba(150,200,150,.1);
     border-radius: 20px;
     margin: left;
@@ -145,14 +148,16 @@ div.titulo p{
 }
 
   form#pro input#uno{
-    width: 290px;
+    width: 350px;
     height: 20px;
+    text-transform: uppercase;
     font: 15px normal normal uppercase helvetica, arial, serif;
 }
 
 form#pro input#cantidadOrden{
-    width: 80px;
+    width: 100px;
     height: 20px;
+    text-transform: uppercase;
     font: 15px normal normal uppercase helvetica, arial, serif;
 }
 
@@ -160,12 +165,14 @@ form#pro input#colorOrden{
      width: 77px;
     height: 20px;
     margin-left: 30px;
+    text-transform: uppercase;
     font: 15px normal normal uppercase helvetica, arial, serif;
 }
 
 form#pro input#tres{
-    width: 100px;
+    width: 120px;
     height: 20px;
+    text-transform: uppercase;
     font: 15px normal normal uppercase helvetica, arial, serif;
 
 }
@@ -184,13 +191,16 @@ form#pro input[type = "radio"]{
 }
 
 form#pro select{
-    width: 280px;
+    width: 320px;
     height: 30px;
 }
 .error {color: #FF0000;}
 
-.subdiv{
+.row{
+    padding-bottom: 30px;
+}
 
-    padding-bottom: 15px;
+div.form-1-2 input#caja_busqueda{
+    text-transform: uppercase;
 }
 

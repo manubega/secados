@@ -1,14 +1,18 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
+<meta charset="UTF-8">
 	<title>Secados Alta Calidad</title>
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="../../views/css/estilo.css">
+<link rel="stylesheet" type="text/css" href="../../views/css/bootstrap/css/bootstrap.min.css">
  <link rel="stylesheet" href="../../views/css/font-awesome-4.7.0/css/font-awesome.min.css">
  <script type="text/javascript" src = "../../views/js/validarProduccion.js"></script>	
  <script type="text/javascript" src = "../../views/js/jquery-3.0.0.min.js"></script>
   <script type="text/javascript" src = "../../views/js/jquery-2.2.0.min.js"></script>
+  
  
 
  <!-- LINK PARA LA CREACION DE LA TABLA -->
@@ -23,7 +27,7 @@
   ===================================-->
   <!--====  End of TABAL JQUERY  ====-->
 
-<header><a href="principal.php?action=inicio" style="text-decoration: none"><h1>SECADOS</h1></a>
+<header><a href="principal.php?action=inicio" style="text-decoration: none;" ><h1>SECADOS</h1></a>
 </header>
 
 <?php

@@ -10,10 +10,10 @@
 	<body>		
 	<div id="login">
 			<h1>Ingreso al Panel</h1>
-			<form method = "POST" onSubmit="return validacion()" id="login" >
+			<form method = "POST" id="login" onSubmit="return validacion()">
 
 			<label for = "usuarioIngreso"></label>
-				<input type="text" name = "usuarioIngreso" placeholder = "Usuario" maxlength="15" minlength="4" value="usuario" id="usuarioIngreso" required>
+				<input type="text" name = "usuarioIngreso" placeholder = "Usuario" maxlength="8" minlength="4" value="usuario" id="usuarioIngreso" required>
 
 				<label for = "passwordIngreso"></label>
 				<input type="password" name = "passwordIngreso" placeholder= "Password" maxlength="15" minlength="5" value="password" id="passwordIngreso" required>

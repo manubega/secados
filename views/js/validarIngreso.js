@@ -1,4 +1,4 @@
-function validacion() {
+function validacion(){
 
 	//VARIABLES QUE VIENEN DEL FORMULARIO DE INICIO DE SESION
 
@@ -12,9 +12,9 @@ function validacion() {
 		var caracteres = usuario.length;
 		var expresion = /^[a-zA-Z0-9]*$/;
 
-		if (caracteres > 6) {
+		if (caracteres > 8) {
 			//document.querySelector("label[for='usuarioIngreso']").innerHTML += "<br>Escribe menos de 6 caracteres...</br>"
-			alert('[ADVERTENCIA] Escriba menos de 6 caracteres...');
+			alert('[ADVERTENCIA] Escriba menos de 8 caracteres...');
 		return false;
 		}
 
@@ -38,10 +38,10 @@ if (password != "") {
 	var caracteres = password.length;
 	var expresion = /^[a-zA-Z0-9]*$/;
 
-	if (caracteres <= 5) {
+	if (caracteres < 5) {
 
 			//document.querySelector("label[for='usuarioIngreso']").innerHTML += "<br>Escribe menos de 6 caracteres...</br>"
-			alert('[ADVERTENCIA] Escriba 6 o mas caracteres...');
+			alert('[ADVERTENCIA] Escriba 5 o mas caracteres...');
 		return false;
 		}
 		if (caracteres > 10) {
