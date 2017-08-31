@@ -55,6 +55,8 @@ tr:nth-child(even) {
 	<br>
 	<br>
 	<input type="number" name="cantidadOrden" id = "cantidadOrden" value="cantidadOrden" placeholder=" Cantidad" required=""><span class="error">*</span>
+
+	<input type="text" name="tipoOrden" id="tipoOrden" value="" placeholder=" TIPO DE PIEL" required=""><span class = "error">*<label for="error"></label></span>
 	
 	<input type="text" name="colorOrden" id="colorOrden" value="" placeholder=" Color" required=""><span class = "error">*<label for="error"></label></span>
 	<br>
@@ -102,7 +104,8 @@ $obj = new ClcController();
 $obj -> registroProduccionController();
 
 ?>
- </div>
+ </div><!-- col-sm-6 -->
+
  <!-- DIVISION DONDE SE ENCUNETRAN LOS CLIENTES -->
  
   <div class="col-sm-6" >
@@ -120,7 +123,7 @@ $obj -> registroProduccionController();
     </div>
 </section>
  <script type="text/javascript" src = "../../views/js/jclientes.js"></script>
-  </div>
- </div><!-- DIVISION 2 -->
-</div><!-- DIVISION 1 -->
+  </div><!-- col-sm-6 -->
+ </div><!-- ROW -->
+</div><!-- PROD1 -->
 

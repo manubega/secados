@@ -14,11 +14,12 @@ class ClsModel extends Conexion{
 		if($row = $stmt->fetch(PDO::FETCH_NUM)){
 			$datoID = $row['0'];
 			$datoNombre = $row['1'];
-			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, id_cliente,nombre,cantidad,color,categoria,proceso,observaciones) VALUES (:numOrden, :id_cliente, :nombre, :cantidad, :color, :categoria, :proceso, :observaciones)");
+			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numOrden, id_cliente,nombre,cantidad,tipo_piel,color,categoria,proceso,observaciones) VALUES (:numOrden, :id_cliente, :nombre, :cantidad, :tipo, :color, :categoria, :proceso, :observaciones)");
 		$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
 		$stmt->bindParam(":id_cliente", $datoID, PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datoNombre, PDO::PARAM_STR);
 		$stmt->bindParam(":cantidad", $datosModel['cantidad'], PDO::PARAM_INT);
+		$stmt->bindParam(":tipo", $datosModel['tipo'], PDO::PARAM_STR);
 		$stmt->bindParam(":color", $datosModel['color'], PDO::PARAM_STR);
 		$stmt->bindParam(":categoria", $datosModel['categoria'], PDO::PARAM_STR);
 		$stmt->bindParam(":proceso", $datosModel['proceso'], PDO::PARAM_STR);
@@ -51,7 +52,7 @@ public function listaProduccionModel($tabla,$tabla2){
 
 public function editarProduccionModel($datosModel,$tabla1){
 
-	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, nombre, numOrden, cantidad, color, categoria, proceso, observaciones, fecha_ingreso FROM $tabla1 WHERE id_codigo = :id_codigo");
+	$stmt = Conexion::conectar()->prepare("SELECT id_codigo, id_cliente, nombre, numOrden, cantidad, tipo_piel, color, categoria, proceso, observaciones, fecha_ingreso FROM $tabla1 WHERE id_codigo = :id_codigo");
 	$stmt->bindParam(":id_codigo", $datosModel, PDO::PARAM_INT);
 	$stmt->execute();
 	 return $stmt->fetch();
@@ -66,11 +67,12 @@ public function editarProduccionModel($datosModel,$tabla1){
 		if($row = $stmt->fetch(PDO::FETCH_NUM)){
 			$datoID = $row['0'];
 			$datoNombre = $row['1'];
-			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET numOrden = :numOrden, id_cliente = :id_cliente, nombre = :nombre, cantidad = :cantidad, color = :color, categoria = :categoria, proceso = :proceso, observaciones = :observaciones WHERE id_codigo = :id_codigo");
+			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET numOrden = :numOrden, id_cliente = :id_cliente, nombre = :nombre, cantidad = :cantidad, tipo_piel = :tipo_piel, color = :color, categoria = :categoria, proceso = :proceso, observaciones = :observaciones WHERE id_codigo = :id_codigo");
 			$stmt->bindParam(":numOrden", $datosModel['numOrden'], PDO::PARAM_STR);
 			$stmt->bindParam(":id_cliente", $datoID, PDO::PARAM_INT);
 			$stmt->bindParam(":nombre", $datoNombre, PDO::PARAM_STR);
 			$stmt->bindParam(":cantidad", $datosModel['cantidad'], PDO::PARAM_INT);
+			$stmt->bindParam(":tipo_piel", $datosModel['tipo_piel'], PDO::PARAM_STR);
 			$stmt->bindParam(":color", $datosModel['color'], PDO::PARAM_STR);
 			$stmt->bindParam(":categoria", $datosModel['categoria'], PDO::PARAM_STR);
 			$stmt->bindParam(":proceso", $datosModel['proceso'], PDO::PARAM_STR);

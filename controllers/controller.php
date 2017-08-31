@@ -6,13 +6,15 @@ class ClcController{
 
 public function registroProduccionController(){
 
-	if (isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
+	if (isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['tipoOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
 		$nOrden = strtoupper($_POST['numOrden']);
 		$color = strtoupper($_POST['colorOrden']);
+		$tipo = strtoupper($_POST['tipoOrden']);
 
 	$datosController = array('numOrden' => $nOrden,
 							'nombre' => $_POST['clienteOrden'],
 							'cantidad' => $_POST['cantidadOrden'],
+							'tipo' => $tipo,
 							'color' => $color,
 							'categoria' => $_POST['categoriaOrden'],
 							'proceso' => $_POST['procesoOrden'],
@@ -71,7 +73,9 @@ public function editarProduccionController(){
 	<br>
 	<br>
 	<input type="number" name="cantidadOrden" id = "cantidadOrden" value="'.$respuesta["cantidad"].'" " required=""><span class="error">*</span>
-	
+
+	<input type="text" name="tipo_piel" id="tipo_piel"  value="'.$respuesta["tipo_piel"].'" required=""><span class = "error">*<label for="error"></label></span>
+
 	<input type="text" name="colorOrden" id="colorOrden"  value="'.$respuesta["color"].'" required=""><span class = "error">*<label for="error"></label></span>
 	<br>
 	<br>';
@@ -83,7 +87,7 @@ public function editarProduccionController(){
 	<label for="lado">Lado</label>
 	<input type="radio" name="categoriaOrden" <?php if($respuesta['categoria'] == "DELANTERO"){echo 'checked = "ckecked"';} ?> value = "DELANTERO" required>
 	<label for="delantero">Delantero</label>
-	<input type="radio" name="categoriaOrden" <?php if($respuesta['categoria'] == "REPROCESO"){echo 'checked = "ckecked"';} ?> value = "RETROCESO" required>
+	<input type="radio" name="categoriaOrden" <?php if($respuesta['categoria'] == "REPROCESO"){echo 'checked = "ckecked"';} ?> value = "REPROCESO" required>
 	<label for="delantero">Reproceso</label><span class="error">*</span>
 	<br>
 	<br>
@@ -113,13 +117,15 @@ public function editarProduccionController(){
 
 public function actualizarProduccionController(){
 
-	if (isset($_POST['id']) && isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
+	if (isset($_POST['id']) && isset($_POST['numOrden']) && isset($_POST['clienteOrden']) && isset($_POST['cantidadOrden']) && isset($_POST['tipo_piel']) && isset($_POST['colorOrden']) && isset($_POST['categoriaOrden']) && isset($_POST['procesoOrden'])) {
 		$numOrden = strtoupper($_POST['numOrden']);
 		$color = strtoupper($_POST['colorOrden']);
+		$tipo_piel = strtoupper($_POST['tipo_piel']);
 		$datosController = array('id' => $_POST['id'],
 								'numOrden' => $numOrden,
 								'nombre' => $_POST['clienteOrden'],
 								'cantidad' => $_POST['cantidadOrden'],
+								'tipo_piel' => $tipo_piel,
 								'color' => $color,
 								'categoria' => $_POST['categoriaOrden'],
 								'proceso' => $_POST['procesoOrden'],

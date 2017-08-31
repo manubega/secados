@@ -3,7 +3,7 @@
 		$mysqli = new mysqli("localhost", "root", "", "dbsecados");
 $salida = "";
 
-$query = "SELECT * FROM clientes ORDER BY fecha_registro DESC";
+$query = "SELECT * FROM clientes ORDER BY id_cliente ASC";
 
 if (isset($_POST['consulta'])) {
 	$q  = $mysqli->real_escape_string($_POST['consulta']);

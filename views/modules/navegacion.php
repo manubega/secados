@@ -1,4 +1,8 @@
-
+<style>
+	a:active{
+		color: green;
+	}
+</style>
 <nav>
 	<ul>
 		<li><a href="principal.php?action=produccion">Produccion</a></li>
